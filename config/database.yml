@@ -1,0 +1,24 @@
+# this tells our app how to set up databases for this project in different enviroment
+# It also tells sinatra how to connect to databases
+# Development = development environment- local machine
+# Test = test enivroment 
+# production = live enviroment, the environment when you deploy your app (heroku)
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: active_record # make sure to change to a name that describes
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: database-test
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  database: ENV['DATABASE_URL']
+  pool: 5
+  timeout: 5000
